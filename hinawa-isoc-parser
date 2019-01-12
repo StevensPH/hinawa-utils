@@ -1,0 +1,47 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2019 Takashi Sakamoto
+
+from sys import argv
+from csv import reader
+
+from hinawa_utils.misc.isoc_context import IsocContext
+
+with open(argv[1], 'r') as f:
+    r = reader(f)
+
+    data = []
+    entry = None
+    for fields in r:
+        if fields[1] == 'CycleStart':
+            if entry != None:
+                data.append(entry)
+            entry = {}
+            entry['start'] = int(fields[10], 16)
+        elif fields[1] == 'Streaming':
+            byte_count = int(fields[9], 10)
+            ch = int(fields[12], 10)
+            cip0 = int(fields[16], 16)
+            cip1 = int(fields[17], 16)
+            entry[ch] = (byte_count, cip0, cip1)
+
+ctxs = {}
+for key, value in data[0].items():
+    if key != 'start' and isinstance(key, int):
+        ctxs[key] = IsocContext(key)
+
+header = IsocContext.header()
+separator = IsocContext.separator()
+print('--- ---- | {0} | {0}'.format(header))
+print('--- ---- | {0} | {0}'.format(separator))
+for datum in data:
+    cycle_start = datum['start']
+    sec, cycle = IsocContext.parse_cycle_start(cycle_start)
+    phrases = []
+    for ch, ctx in ctxs.items():
+        if ch not in datum:
+            continue
+        byte_count, cip0, cip1 = datum[ch]
+        phrase = ctx.parse(byte_count // 4, sec, cycle, cip0, cip1)
+        phrases.append(phrase)
+    print('{0: >3d} {1: >4d} | {2}'.format(sec, cycle, '| '.join(phrases)))
