@@ -58,6 +58,7 @@ setuptools.setup(
         'hinawa-maudio-bebob-cli',
         'hinawa-motu-common-cli',
         'hinawa-oxfw-generic-cli',
+        'hinawa-ssl-duende-cli',
         'hinawa-tascam-fireone-cli',
         'hinawa-tascam-fw-console-cli',
         'hinawa-tascam-fw-rack-cli',

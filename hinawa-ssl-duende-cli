@@ -1,0 +1,39 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2018 Takashi Sakamoto
+
+import gi
+gi.require_version('Hinawa', '2.0')
+from gi.repository import Hinawa
+
+from hinawa_utils.misc.cli_kit import CliKit
+from hinawa_utils.dice.ssl_duende_protocol import SSLDuendeProtocol
+
+unit = Hinawa.FwUnit()
+unit.open('/dev/fw1')
+unit.listen()
+
+print(SSLDuendeProtocol.read_metadata(unit))
+
+#for i in range(0x1f):
+#  print(SSLDuendeProtocol.get_program_registry(unit, i))
+
+print(SSLDuendeProtocol.get_used_count(unit))
+
+#print(SSLDuendeProtocol.get_used_count(unit))
+#tag = SSLDuendeProtocol.load_program(unit, 1, 2)
+#print('loaded', tag)
+
+#tag = SSLDuendeProtocol.load_program(unit, 1, 2)
+#print('load', tag)
+print(SSLDuendeProtocol.get_used_count(unit))
+print('unload', SSLDuendeProtocol.unload_program(unit, 4))
+
+print(SSLDuendeProtocol.get_used_count(unit))
+#for i in range(0, 4):
+#    for j in range(0, 4):
+#        for k in range(0, 4):
+#            print(i, j, k)
+            #print(SSLDuendeProtocol.unload_program(unit, i, j, k))
+            #print(SSLDuendeProtocol.get_used_count(unit))
+            #print('unloaded')

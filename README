@@ -70,6 +70,8 @@ The modules include applications of below specifications:
     * CLI tool for M-Audio FireWire series based on BeBoB solution
  * hinawa-oxfw-generic-cli
     * CLI tool for OXFW generic functionalities
+ * hinawa-ssl-duende-cli
+    * CLI tool for Solid State Logic Duende series
  * hinawa-tascam-fireone-cli
     * CLI tool for Tascam FireOne
  * hinawa-tascam-fw-rack-cli
