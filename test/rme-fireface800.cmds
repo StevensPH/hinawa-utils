@@ -1,100 +1,100 @@
 status
 
-single-option auto-sync internal get
-single-option auto-sync base-441 get
-single-option auto-sync base-480 get
-single-option auto-sync double get
-single-option auto-sync quadruple get
-single-option front-input in-1 get
-single-option front-input in-7 get
-single-option front-input in-8 get
-single-option rear-input in-1 get
-single-option rear-input in-7 get
-single-option rear-input in-8 get
-single-option phantom-power mic-7 get
-single-option phantom-power mic-8 get
-single-option phantom-power mic-9 get
-single-option phantom-power mic-10 get
-single-option spdif-in optical get
-single-option spdif-in track-maker get
-single-option spdif-out professional get
-single-option spdif-out emphasis get
-single-option spdif-out non-audio get
-single-option spdif-out optical get
-single-option instruments drive get
-single-option instruments limit get
-single-option instruments speaker-emu get
-single-option wdclk-out single-speed get
-single-option midi-low-addr 0x00000000 get
-single-option midi-low-addr 0x00000080 get
-single-option midi-low-addr 0x00000100 get
-single-option midi-low-addr 0x00000180 get
-single-option in-error continue get
+boolean-option auto-sync internal get
+boolean-option auto-sync base-441 get
+boolean-option auto-sync base-480 get
+boolean-option auto-sync double get
+boolean-option auto-sync quadruple get
+boolean-option front-input in-1 get
+boolean-option front-input in-7 get
+boolean-option front-input in-8 get
+boolean-option rear-input in-1 get
+boolean-option rear-input in-7 get
+boolean-option rear-input in-8 get
+boolean-option phantom-power mic-7 get
+boolean-option phantom-power mic-8 get
+boolean-option phantom-power mic-9 get
+boolean-option phantom-power mic-10 get
+boolean-option spdif-in optical get
+boolean-option spdif-in track-maker get
+boolean-option spdif-out professional get
+boolean-option spdif-out emphasis get
+boolean-option spdif-out non-audio get
+boolean-option spdif-out optical get
+boolean-option instruments drive get
+boolean-option instruments limit get
+boolean-option instruments speaker-emu get
+boolean-option wdclk-out single-speed get
+boolean-option midi-low-addr 0x00000000 get
+boolean-option midi-low-addr 0x00000080 get
+boolean-option midi-low-addr 0x00000100 get
+boolean-option midi-low-addr 0x00000180 get
+boolean-option in-error continue get
 
 multiple-option line-in get
 multiple-option line-out get
 multiple-option primary-clk-src get
 
-single-option auto-sync internal set 0
-single-option auto-sync internal set 1
-single-option auto-sync base-441 set 0
-single-option auto-sync base-441 set 1
-single-option auto-sync base-480 set 0
-single-option auto-sync base-480 set 1
-single-option auto-sync double set 0
-single-option auto-sync double set 1
-single-option auto-sync quadruple set 0
-single-option auto-sync quadruple set 1
-single-option front-input in-1 set 0
-single-option front-input in-1 set 1
-single-option front-input in-7 set 0
-single-option front-input in-7 set 1
-single-option front-input in-8 set 0
-single-option front-input in-8 set 1
-single-option rear-input in-1 set 0
-single-option rear-input in-1 set 1
-single-option rear-input in-7 set 0
-single-option rear-input in-7 set 1
-single-option rear-input in-8 set 0
-single-option rear-input in-8 set 1
-single-option phantom-power mic-7 set 0
-single-option phantom-power mic-7 set 1
-single-option phantom-power mic-8 set 0
-single-option phantom-power mic-8 set 1
-single-option phantom-power mic-9 set 0
-single-option phantom-power mic-9 set 1
-single-option phantom-power mic-10 set 0
-single-option phantom-power mic-10 set 1
-single-option spdif-in optical set 0
-single-option spdif-in optical set 1
-single-option spdif-in track-maker set 0
-single-option spdif-in track-maker set 1
-single-option spdif-out professional set 0
-single-option spdif-out professional set 1
-single-option spdif-out emphasis set 0
-single-option spdif-out emphasis set 1
-single-option spdif-out non-audio set 0
-single-option spdif-out non-audio set 1
-single-option spdif-out optical set 0
-single-option spdif-out optical set 1
-single-option instruments drive set 0
-single-option instruments drive set 1
-single-option instruments limit set 0
-single-option instruments limit set 1
-single-option instruments speaker-emu set 0
-single-option instruments speaker-emu set 1
-single-option wdclk-out single-speed set 0
-single-option wdclk-out single-speed set 1
-single-option midi-low-addr 0x00000000 set 0
-single-option midi-low-addr 0x00000000 set 1
-single-option midi-low-addr 0x00000080 set 0
-single-option midi-low-addr 0x00000080 set 1
-single-option midi-low-addr 0x00000100 set 0
-single-option midi-low-addr 0x00000100 set 1
-single-option midi-low-addr 0x00000180 set 0
-single-option midi-low-addr 0x00000180 set 1
-single-option in-error continue set 0
-single-option in-error continue set 1
+boolean-option auto-sync internal set 0
+boolean-option auto-sync internal set 1
+boolean-option auto-sync base-441 set 0
+boolean-option auto-sync base-441 set 1
+boolean-option auto-sync base-480 set 0
+boolean-option auto-sync base-480 set 1
+boolean-option auto-sync double set 0
+boolean-option auto-sync double set 1
+boolean-option auto-sync quadruple set 0
+boolean-option auto-sync quadruple set 1
+boolean-option front-input in-1 set 0
+boolean-option front-input in-1 set 1
+boolean-option front-input in-7 set 0
+boolean-option front-input in-7 set 1
+boolean-option front-input in-8 set 0
+boolean-option front-input in-8 set 1
+boolean-option rear-input in-1 set 0
+boolean-option rear-input in-1 set 1
+boolean-option rear-input in-7 set 0
+boolean-option rear-input in-7 set 1
+boolean-option rear-input in-8 set 0
+boolean-option rear-input in-8 set 1
+boolean-option phantom-power mic-7 set 0
+boolean-option phantom-power mic-7 set 1
+boolean-option phantom-power mic-8 set 0
+boolean-option phantom-power mic-8 set 1
+boolean-option phantom-power mic-9 set 0
+boolean-option phantom-power mic-9 set 1
+boolean-option phantom-power mic-10 set 0
+boolean-option phantom-power mic-10 set 1
+boolean-option spdif-in optical set 0
+boolean-option spdif-in optical set 1
+boolean-option spdif-in track-maker set 0
+boolean-option spdif-in track-maker set 1
+boolean-option spdif-out professional set 0
+boolean-option spdif-out professional set 1
+boolean-option spdif-out emphasis set 0
+boolean-option spdif-out emphasis set 1
+boolean-option spdif-out non-audio set 0
+boolean-option spdif-out non-audio set 1
+boolean-option spdif-out optical set 0
+boolean-option spdif-out optical set 1
+boolean-option instruments drive set 0
+boolean-option instruments drive set 1
+boolean-option instruments limit set 0
+boolean-option instruments limit set 1
+boolean-option instruments speaker-emu set 0
+boolean-option instruments speaker-emu set 1
+boolean-option wdclk-out single-speed set 0
+boolean-option wdclk-out single-speed set 1
+boolean-option midi-low-addr 0x00000000 set 0
+boolean-option midi-low-addr 0x00000000 set 1
+boolean-option midi-low-addr 0x00000080 set 0
+boolean-option midi-low-addr 0x00000080 set 1
+boolean-option midi-low-addr 0x00000100 set 0
+boolean-option midi-low-addr 0x00000100 set 1
+boolean-option midi-low-addr 0x00000180 set 0
+boolean-option midi-low-addr 0x00000180 set 1
+boolean-option in-error continue set 0
+boolean-option in-error continue set 1
 
 multiple-option line-in set lo-gain
 multiple-option line-in set -10dB

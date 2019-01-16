@@ -12,6 +12,12 @@ class FFConfigRomParser(Ieee1394ConfigRomParser):
         return self.__parse_entries(entries['root-directory'])
 
     def __parse_entries(self, entries):
+        if entries[1][0] == 'NODE_CAPABILITIES':
+            return self.__parse_former_entries(entries)
+        else:
+            return self.__parse_later_entries(entries)
+
+    def __parse_former_entries(self, entries):
         info = {}
 
         if (entries[0] != ['VENDOR', 0x000a35] or
@@ -21,6 +27,26 @@ class FFConfigRomParser(Ieee1394ConfigRomParser):
             raise OSError('Invalid format of config ROM.')
 
         unit_entries = entries[3][1]
+        if (unit_entries[0] != ['SPECIFIER_ID', 0x000a35] or
+                unit_entries[1][0] != 'VERSION' or
+                unit_entries[2] != ['MODEL', 0x101800]):
+            raise OSError('Invalid data of config ROM.')
+
+        info['model_id'] = unit_entries[1][1]
+
+        return info
+
+    def __parse_later_entries(self, entries):
+        info = {}
+
+        if (entries[0][0] != 'NODE_CAPABILITIES' or
+                entries[1] != ['VENDOR', 0x000a35] or
+                entries[2][0] != 'DESCRIPTOR' or
+                entries[3][0] != 'EUI_64' or
+                entries[4][0] != 'UNIT'):
+            raise OSError('Invalid format of config ROM.')
+
+        unit_entries = entries[4][1]
         if (unit_entries[0] != ['SPECIFIER_ID', 0x000a35] or
                 unit_entries[1][0] != 'VERSION' or
                 unit_entries[2] != ['MODEL', 0x101800]):

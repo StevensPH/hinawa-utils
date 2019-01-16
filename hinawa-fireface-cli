@@ -10,10 +10,10 @@ def handle_status(unit, args):
     print('Model name: {0}'.format(unit.get_model_name()))
 
     print('Current configuration:')
-    for target in unit.get_single_option_labels():
+    for target in unit.get_boolean_option_labels():
         print('  {0}'.format(target))
-        for item in unit.get_single_option_item_labels(target):
-            print('    {0}: {1}'.format(item, unit.get_single_option(target, item)))
+        for item in unit.get_boolean_option_item_labels(target):
+            print('    {0}: {1}'.format(item, unit.get_boolean_option(target, item)))
     for target in unit.get_multiple_option_labels():
         print('  {0}: {1}'.format(target, unit.get_multiple_option(target)))
 
@@ -54,27 +54,27 @@ def handle_multiple_option(unit, args):
     return False
 
 
-def handle_single_option(unit, args):
+def handle_boolean_option(unit, args):
     ops = ('set', 'get')
-    targets = unit.get_single_option_labels()
+    targets = unit.get_boolean_option_labels()
     if len(args) >= 1 and args[0] in targets:
         target = args[0]
-        items = unit.get_single_option_item_labels(target)
+        items = unit.get_boolean_option_item_labels(target)
         if len(args) >= 3 and args[1] in items and args[2] in ops:
             item = args[1]
             op = args[2]
             if op == 'set' and len(args) >= 4:
                 enable = True if args[3] == '1' else False
-                unit.set_single_option(target, item, enable)
+                unit.set_boolean_option(target, item, enable)
                 return True
             elif op == 'get':
-                print(unit.get_single_option(target, item))
+                print(unit.get_boolean_option(target, item))
                 return True
     print('Arguments for single-option command:')
     print('  single-option TARGET ITEM OP [ENABLE]')
     print('    TARGET: [{0}]'.format('|'.join(targets)))
     for target in targets:
-        items = unit.get_single_option_item_labels(target)
+        items = unit.get_boolean_option_item_labels(target)
         print('    ITEM    [{0}] if TARGET={1}'.format('|'.join(items), target))
     print('    OP      [{0}]'.format('|'.join(ops)))
     print('    ENABLE: [0|1]')
@@ -136,7 +136,7 @@ def handle_output(unit, args):
 cmds = {
     'status':           handle_status,
     'multiple-option':  handle_multiple_option,
-    'single-option':    handle_single_option,
+    'boolean-option':   handle_boolean_option,
     'mixer-src':        handle_mixer_src,
     'output':           handle_output,
 }
